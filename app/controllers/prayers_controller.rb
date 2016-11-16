@@ -14,6 +14,10 @@ class PrayersController < ApplicationController
       redirect_to prayers_path
     end
     
+    def show 
+      
+    end
+    
     private
     
     def prayer_params
