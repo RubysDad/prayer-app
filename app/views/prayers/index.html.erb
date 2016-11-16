@@ -1,4 +1,11 @@
-<h1> Published Prayer Requests</h1>
+<h3 class="text-center">Published Prayer Requests</h3>
+<div align="center">
+  <%= will_paginate %>
+</div>
+<%= render 'prayer', obj: @prayers %>
+<div align="center">
+  <%= will_paginate %>
+</div>
 
 <%= link_to "New Prayer Request", new_prayer_path %>
 

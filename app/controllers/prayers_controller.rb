@@ -15,7 +15,7 @@ class PrayersController < ApplicationController
     end
     
     def show 
-      
+      @prayer = Prayer.all(params{:id})
     end
     
     private
