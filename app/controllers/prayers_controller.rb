@@ -1,7 +1,7 @@
 class PrayersController < ApplicationController 
-    before_action :set_article, only: [:edit, :update, :show, :destroy]
-    before_action :require_user, except: [:index, :new, :show]
-    before_action :require_same_user, only: [:edit, :update, :destroy]
+    #before_action :set_article, only: [:edit, :update, :show, :destroy]
+    #before_action :require_user, except: [:index, :new, :show]
+    #before_action :require_same_user, only: [:edit, :update, :destroy]
     
     def index 
     
@@ -17,12 +17,12 @@ class PrayersController < ApplicationController
     
     def create
       @prayer = Prayer.new(prayer_params)
-      @prayer.user = current_user
+      #@prayer.user = current_user
       if @prayer.save
         flash[:success] = "Your Prayer Request has been published"
-        redirect_to prayer_path(@prayer)
+        redirect_to prayers_path
       else
-        flash[:danger] = "Prayer request has not been created"
+        flash.now[:danger] = "Prayer request has not been created"
         render :new
       end
     end
@@ -54,11 +54,10 @@ class PrayersController < ApplicationController
     def prayer_params
       params.require(:prayer).permit(:title, :body)
     end
-    
-    def require_same_user
-      if current_user != @prayer.user and !current_user.admin?
-        flash[:danger] = "You can only edit or delete your own prayer requests"
-        redirect_to "/"
-      end
-    end
+    #def require_same_user
+      #if current_user != @prayer.user and !current_user.admin?
+        #lash[:danger] = "You can only edit or delete your own prayer requests"
+        #redirect_to "/"
+      #end
+    #end
 end
