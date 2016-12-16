@@ -6,8 +6,6 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'devise'
-gem 'will_paginate', '3.0.7'
-gem 'bootstrap-will_paginate', '0.0.10'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 # Use Puma as the app server

@@ -1,10 +1,10 @@
 class PrayersController < ApplicationController 
     before_action :set_article, only: [:edit, :update, :show, :destroy]
-    before_action :require_user, except: [:index, :show]
+    before_action :require_user, except: [:index, :new, :show]
     before_action :require_same_user, only: [:edit, :update, :destroy]
     
-    def index
-      @prayer = Prayer.paginate(page: params[:page])
+    def index 
+    
     end
     
     def new
@@ -22,7 +22,8 @@ class PrayersController < ApplicationController
         flash[:success] = "Your Prayer Request has been published"
         redirect_to prayer_path(@prayer)
       else
-        render 'new'
+        flash[:danger] = "Prayer request has not been created"
+        render :new
       end
     end
     
